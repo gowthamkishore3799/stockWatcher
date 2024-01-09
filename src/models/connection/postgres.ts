@@ -6,7 +6,7 @@ import logger from "../../utils/logger";
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const { POSTGRES_HOST, POSTGRES_USERNAME, POSTGRES_HOST_password, POSTGRES_DATABASE } = process.env || {}
+const { POSTGRES_HOST, POSTGRES_USERNAME, POSTGRES_PASSWORD, POSTGRES_DATABASE } = process.env || {}
 
 
 
@@ -16,7 +16,7 @@ export async function getRepository(): Promise<DataSource | void> {
         host: POSTGRES_HOST,
         port: 5432,
         username: POSTGRES_USERNAME,
-        password: POSTGRES_HOST_password,
+        password: POSTGRES_PASSWORD,
         database: POSTGRES_DATABASE,
         synchronize: true,
         logging: true,

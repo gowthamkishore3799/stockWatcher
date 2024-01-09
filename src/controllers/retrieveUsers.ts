@@ -10,10 +10,11 @@ export async function getUserDetails(): Promise<Array<userdetails>> {
         throw new Error('Error in Estabilishing connection');
     }
     const usersRepository = await appDataSource.getRepository(userdetails)
-    const users = await usersRepository.find();
+    const users = await usersRepository.find({ select: ['username', 'channel', 'name']});
 
     if(_.isEmpty(users)){
         throw new Error('No records to process further')
     }
+
     return users;
 }

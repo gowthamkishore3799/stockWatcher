@@ -12,11 +12,3 @@ This repository contains a simple stock alert system that runs a cron job every 
 - **Telegram Integration:** Alerts are sent to a Telegram channel when the stock price condition is met.
 
 - **Configurable Conditions:** You can easily set and modify the stock price conditions.
-
-
-## Getting Started
-
-1. Clone the repository:
-
-   ```bash
-   git clone [https://github.com/yourusername/stock-alert-system.git](https://github.com/gowthamkishore3799/stockWatcher)https://github.com/gowthamkishore3799/stockWatcher

@@ -14,6 +14,16 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    env:
+      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+      POSTGRES_USERNAME: ${{ secrets.POSTGRES_USERNAME }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DATABASE: ${{ secrets.POSTGRES_DATABASE }}
+      MONGODB_CONNECTION_STRING: ${{ secrets.MONGODB_CONNECTION_STRING }}
+      TELEGRAM_BOTTOKEN: ${{ secrets.TELEGRAM_BOTTOKEN }}
+
+
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checkout the repository
@@ -29,6 +39,9 @@ jobs:
       # Install dependencies
       - name: Install Dependencies
         run: npm install
+
+      - name: Hello world action
+        run: echo "Super secret value"
 
       # Build and start the application
       - name: Build and Start

@@ -1,0 +1,35 @@
+name: Cron Job
+
+on:
+  # Triggers the workflow every 5 minutes on the main branch
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    branches:
+      - main
+
+jobs:
+  # This workflow contains a single job called "cron"
+  cron:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Install Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Build and start the application
+      - name: Build and Start
+        run: npm run build && npm run start
